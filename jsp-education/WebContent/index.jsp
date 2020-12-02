@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/css.css">
 <%
 	String section = request.getParameter("section") != null  ? request.getParameter("section") : "";
 %>
