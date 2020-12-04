@@ -28,6 +28,9 @@
 	case "select_sales_by_shop": 
 		%> <%@ include file="page/select_sales_by_shop.jsp" %> <%
 		break;
+	case "select_pizza": 
+		%> <%@ include file="page/select_pizza.jsp" %> <%
+		break;
 	default:
 		%> <%@ include file="static/index.jsp" %> <%
 	}

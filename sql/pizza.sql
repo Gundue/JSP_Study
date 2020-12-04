@@ -65,6 +65,8 @@ WHERE
 ORDER BY 
     SALELIST.SALENO
 
+-----------------------------------------------------------------------------------------
+
 SELECT
     SHOP.SCODE, SHOP.SNAME,
     SUM(PIZZA.COST * SALELIST.AMOUNT) AS TOTAL_COST
@@ -77,4 +79,20 @@ WHERE
     AND SALELIST.PCODE = PIZZA.PCODE
 GROUP BY
     SHOP.SCODE, SHOP.SNAME
+ORDER BY TOTAL_COST DESC;
+
+-----------------------------------------------------------------------------------------
+
+SELECT
+    PIZZA.PNAME,
+    SUM(PIZZA.COST * SALELIST.AMOUNT) AS TOTAL_COST
+FROM
+    TBL_SALELIST_01 SALELIST,
+    TBL_SHOP_01 SHOP,
+    TBL_PIZZA_01 PIZZA
+WHERE
+    SALELIST.SCODE = SHOP.SCODE
+    AND SALELIST.PCODE = PIZZA.PCODE
+GROUP BY
+    PIZZA.PCODE, PIZZA.PNAME
 ORDER BY TOTAL_COST DESC;
