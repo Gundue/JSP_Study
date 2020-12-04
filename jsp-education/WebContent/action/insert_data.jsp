@@ -14,16 +14,22 @@ try {
 
 	Statement stmt = conn.createStatement();
 	
-	String query = "Insert INTO TBL_PIZZA_01(PCODE, PNAME, COST) VALUES('%s', '%s', '%d')";
+	String query = "Insert INTO TBL_PIZZA_01(PCODE, PNAME, COST) VALUES('%s', '%s', %d)";
+	
+	//out.println(String.format(query, pizza_code, pizza_name, cost));
 	
 	ResultSet rs = stmt.executeQuery(String.format(query, pizza_code, pizza_name, cost));
 
+	conn.commit();
+	
 	stmt.close();
 	conn.close();
 }
 catch (Exception e) {
 	e.printStackTrace();
 }
+
+response.sendRedirect("../index.jsp");
 
 %>
    

@@ -11,11 +11,15 @@
 	<table border="1">
 		<tr>
 			<td>피자코드</td>
-			<td><input type="text" name="pizza_name"></td>
+			<td><input type="text" name="pizza_code"></td>
 		</tr>
 		<tr>
 			<td>피자이름</td>
-			<td><input type="text" name="pizza_code"></td>
+			<td><input type="text" name="pizza_name"></td>
+		</tr>
+		<tr>
+			<td>피자가격</td>
+			<td><input type="number" name="cost"></td>
 		</tr>
 		<tr>
 			<td colspan="2">
