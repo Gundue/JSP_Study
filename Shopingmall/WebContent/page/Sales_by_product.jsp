@@ -12,7 +12,7 @@
 	try {
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection conn = DriverManager.getConnection
-		("jdbc:oracle:thin:@//122.128.169.32:1521/xe", "sdh_8", "1234");
+		("jdbc:oracle:thin:@//localhost:1521/xe", "system", "1234");
 		if (conn != null) {
 			out.println("Database Connected!");
 		}
@@ -20,15 +20,22 @@
 			out.println("Database Connect Fail!");
 		}
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery();
+		ResultSet rs = stmt.executeQuery("SELECT " +
+			    "PRODUCT.NAME, " +
+			    "SUM(PRODUCT.PRICE * SALE.AMOUNT), " +
+			    "SUM(SALE.AMOUNT) " +
+			"FROM " +
+			    "PRODUCT, SALE " +
+			"WHERE " +
+			    "PRODUCT.PRODUCT_ID = SALE.PRODUCT_ID " +
+			"GROUP BY " +
+			    "PRODUCT.PRODUCT_ID, PRODUCT.NAME ");
 		while (rs.next()) {
 %>
 			<tr>
-				<td><% out.println(rs.getInt(1)); %></td>
-				<td><% out.println(rs.getString(2)); %></td>
-				<td><% out.println(rs.getString(3)); %></td>
-				<td><% out.println(rs.getInt(4)); %></td>
-				<td><% out.println(rs.getInt(5)); %></td>
+				<td><% out.println(rs.getString(1)); %></td>
+				<td><% out.println(rs.getInt(2)); %></td>
+				<td><% out.println(rs.getInt(3)); %></td>
 			</tr>
 <% 
 		}
