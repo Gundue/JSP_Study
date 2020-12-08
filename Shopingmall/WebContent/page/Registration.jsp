@@ -54,7 +54,7 @@ function reset_form() {
 		</tr>
 		<tr>
 			<td>판매날짜</td>
-			<td><input type="date" name="pushase_date"></td>
+			<td><input type="date" name="purchase_date"></td>
 		</tr>
 		<tr>
 			<td colspan="2">
