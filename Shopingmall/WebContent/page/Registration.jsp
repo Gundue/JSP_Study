@@ -23,6 +23,10 @@ function submit_form(){
 		document.input_form.sale_amount.focus();
 		return;
 	}
+	if(document.input_form.product_id.selectedIndex <= 0) {
+		alert("판매상품을 선택해주세요");
+		return;
+	}
 	alert("정상적으로 처리되었습니다");
 	document.input_form.submit();
 }
