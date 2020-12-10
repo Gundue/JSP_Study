@@ -26,5 +26,5 @@ try {
 catch (Exception e) {
 	e.printStackTrace();
 }
-response.sendRedirect("../index.jsp?section=select_sales");
+response.sendRedirect("../index.jsp?section=pizza_sale_select.jsp");
 %>

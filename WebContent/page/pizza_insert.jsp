@@ -27,6 +27,10 @@ function submit_form(){
 		alert("판매 개수를 입력해야 합니다");
 		document.input_form.sale_amount.focus();
 		return;
+		if(document.input_form.pcode.selectedIndex === 0) {
+			alert("판매 개수를 입력해야 합니다");
+			document.input_form.pcode.focus();
+			return;
 	}
 	alert("정상적으로 처리되었습니다");
 	document.input_form.submit();
@@ -58,7 +62,7 @@ function reset_form() {
 						ResultSet rs_pizza = stmt.executeQuery("SELECT PCODE, PNAME FROM TBL_PIZZA_01");
 						while (rs_pizza.next()) {
 					%>
-						<option value="<%=rs_pizza.getString(1) %>"><%= rs_pizza.getString(2) %></option>
+						<option value="<%=rs_pizza.getString(1) %>"><%= String.format("[%s] %s", rs_pizza.getString(1), rs_pizza.getString(2)) %></option>
 					<%
 						}
 					%>

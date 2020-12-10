@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="java.text.SimpleDateFormat"  %>
+<%@ page import="java.text.DateFormat" %>
 
 <h3>통합매출현황조회</h3>
 <table border ="1">
@@ -39,7 +41,7 @@
 				<td><% out.println(rs.getString(4)); %></td>
 				<td><% out.println(rs.getString(5)); %></td>
 				<td><% out.println(rs.getInt(6)); %></td>
-				<td><% out.println(rs.getInt(7)); %></td>
+				<td>\<% out.println(rs.getInt(7)); %></td>
 			</tr>
 <% 
 		}
